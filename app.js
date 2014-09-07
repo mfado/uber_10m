@@ -13,7 +13,7 @@
     events: {
       'app.activated':'showModal'
       //'ticket.save':'saveHookHandler',
-      //'ticket.save.done':'saveHookHandler'
+      //'ticket.submit.done':'saveHookHandler'
     },
 
     showModal: function() {
