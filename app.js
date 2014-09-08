@@ -5,14 +5,14 @@
 
   resources: {
       GIF_URL       : 'https://media.giphy.com/media/Jjtioi0nvMnFC/giphy.gif',
-      TICKET_NUM    : 226,
+      TICKET_NUM    : 225,
       MODAL_CLASS   : 'my_modal'
     },
 
 
     events: {
-      'app.activated':'showModal'
-      //'ticket.save':'saveHookHandler',
+      //'app.activated':'showModal'
+      'ticket.save':'saveHookHandler'
       //'ticket.submit.done':'saveHookHandler'
     },
 
@@ -28,11 +28,17 @@
 
     saveHookHandler: function() {
       var ticket = this.ticket();
-      console.log(ticket.status());		
-      this.switchTo('modal',this.resources.GIF_URL);
-      //this.$(".my_modal").modal();
-      this.toggleModal("my_modal", true);
-      //return false;
+      if ((ticket.id()==this.resources.TICKET_NUM)&&(this.ticket().status() == 'solved')) {
+        return this.promise(function(done, fail) {          
+          this.switchTo('modal', {
+            gif_url: this.resources.GIF_URL
+          });
+          this.toggleModal(this.resources.MODAL_CLASS, true);           
+          console.log('still fired');
+          done();
+        }); 
+      }
+      else return true;
     },
 
     // helper functions
