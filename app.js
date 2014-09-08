@@ -17,22 +17,22 @@
     },
 
     showModal: function() {
-    	var ticket = this.ticket();
-  		if (ticket.id()==this.resources.TICKET_NUM) {
+      var ticket = this.ticket();
+      if (ticket.id()==this.resources.TICKET_NUM) {
         this.switchTo('modal', {
           gif_url: this.resources.GIF_URL
         });
-  			this.toggleModal(this.resources.MODAL_CLASS, true);		
-  		}
+      this.toggleModal(this.resources.MODAL_CLASS, true);		
+      }
     },
 
     saveHookHandler: function() {
-  		var ticket = this.ticket();
-  		console.log(ticket.status());		
-    	this.switchTo('modal',this.resources.GIF_URL);
-    	//this.$(".my_modal").modal();
-    	this.toggleModal("my_modal", true);
-    	//return false;
+      var ticket = this.ticket();
+      console.log(ticket.status());		
+      this.switchTo('modal',this.resources.GIF_URL);
+      //this.$(".my_modal").modal();
+      this.toggleModal("my_modal", true);
+      //return false;
     },
 
     // helper functions
