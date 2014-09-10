@@ -4,26 +4,27 @@
 
 
   resources: {
-      GIF_URL       : 'https://media.giphy.com/media/Jjtioi0nvMnFC/giphy.gif',
+      GIF_URL       : 'https://www.dropbox.com/s/19rbfd26lcvurbc/uber.gif?raw=1',
       TICKET_NUM    : 225,
       MODAL_CLASS   : 'my_modal'
     },
 
 
     events: {
-      //'app.activated':'showModal'
-      'ticket.save':'saveHookHandler'
+      'app.activated':'showModal'
+      //'ticket.save':'saveHookHandler'
       //'ticket.submit.done':'saveHookHandler'
     },
 
     showModal: function() {
       var ticket = this.ticket();
-      if (ticket.id()==this.resources.TICKET_NUM) {
+      if (ticket.id()==this.resources.TICKET_NUM) {            
         this.switchTo('modal', {
           gif_url: this.resources.GIF_URL
         });
       this.toggleModal(this.resources.MODAL_CLASS, true);		
       }
+      console.log("hello there!");
     },
 
     saveHookHandler: function() {
